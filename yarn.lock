@@ -3293,6 +3293,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+emmet@^2.0.0-rc.9:
+  version "2.0.0-rc.9"
+  resolved "https://registry.yarnpkg.com/emmet/-/emmet-2.0.0-rc.9.tgz#cc59e8c29744ab738814f1b298026b92c5ff91f0"
+  integrity sha512-x4jUa/GAMR1f6LwQN2HqkAMQpMwSo8yjj1bjuYwRA8vcsXyWM2XWS8RGBTEZnj29Njl0tTBC8MNzRvHsblEiIA==
+
 emoji-regex@^6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.5.1.tgz#9baea929b155565c11ea41c6626eaa65cef992c2"
