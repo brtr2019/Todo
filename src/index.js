@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const TodoList = () => {
+const TodoList = (props) => {
+
 	return (
 		<ul>
-
-			<li>Learn React</li>
-			<li>Build Awesome App</li>
+			<li>React</li>
+			<li>Java</li>
 		</ul>
 	)
 }
@@ -16,12 +16,20 @@ const AppHeader = () => {
 }
 
 const SearchPanel = () => {
-	return <input type="text" placeholder="Search" />
+
+	const searchText = "Search Here";
+	const searchStyle = {
+		fontSize: '12px',
+	}
+	return <input type="text" style={searchStyle} placeholder={searchText} />
 }
 
 const App = () => {
+	const isLogged = true;
+	//const loginBox = <span>Log in please</span>
 	return (
 		<div>
+			{isLogged && (new Date().toLocaleString("ru-RU"))}
 			<AppHeader />
 			<SearchPanel />
 			<TodoList />
