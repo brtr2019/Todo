@@ -11,8 +11,9 @@ const TodoList = ({ todos,onDeleted }) => {
 
     return (
       <li key={id} className="list-group-item">
+				<span>{id}</span>
         <TodoListItem {...itemProps } 
-				onDeleted={()=>onDeleted(id)} />
+				onDeleted={()=>onDeleted(id)}/>
       </li>
     );
   });

@@ -24,13 +24,9 @@ export default class TodoListItem extends Component {
 		})
 	}
 
-	render(){
-	
-	const { label,onDeleted} = this.props;
+	render(){	
+	const { label,onDeleted,id} = this.props;
 	const {done,important} = this.state;	
-  
-	
-	
 	
 	let classNames = 'todo-list-item';
 
@@ -40,6 +36,7 @@ export default class TodoListItem extends Component {
 
 	if(important){
 		classNames+=' important';
+		
 	}
 
   return (
