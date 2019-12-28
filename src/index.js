@@ -59,7 +59,7 @@ class App extends Component {
 			const idx = todoData.findIndex((el)=>el.id===id);
 			console.log('You choose: '+idx);
 			
-			// 1 update object
+			// 1 обновить объект
 			const oldItem = todoData[idx];
 			//обновляется(создается) массив newItem с done:true
 			const newItem = {...oldItem,done: !oldItem.done};
