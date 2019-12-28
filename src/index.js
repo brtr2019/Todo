@@ -39,7 +39,7 @@ class App extends Component {
 			}
 		})
 	}
-
+	// добавление элемента
 	addItem=(text)=>{
 		const newItem = this.createTodoItem(text);
 		this.setState(({todoData})=>{
