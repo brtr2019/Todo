@@ -8,24 +8,32 @@ import ItemStatusFilter from './components/item-status-filter/item-status-filter
 import './index.css';
 
 class App extends Component {
-
+    //maxId = Object.keys(this.state.todoData).length+1;
+	maxId = 100;
 	
 	state = {
 		todoData:[
-			{ label: 'Drink Coffee', important: false,done:false, id: 1 },
-			{ label: 'Make Awesome App', important: false,done:false, id: 2},
-			{ label: 'Have a lunch', important: false,done:false, id: 3}
+			this.createTodoItem('Drink Coffee'),
+			this.createTodoItem('Make Awesome App'),
+			this.createTodoItem('Have a lunch')
 		]
 	}
 
-	//maxId = Object.keys(this.state.todoData).length+1;
-	maxId = 100;
+	createTodoItem(label){
+		return {
+			label,
+			important: false,
+			done:false,
+			id: this.maxId++
+		}
+	}
 	
 	deleteItem=(id)=>{
 		this.setState(({todoData})=>{
-			const idx = todoData.findIndex((el)=>el.id===id);
 
+			const idx = todoData.findIndex((el)=>el.id===id);
 			const newArray = [...todoData.slice(0,idx),...todoData.slice((idx+1))];
+			
 			return {
 				todoData:newArray
 			}
@@ -33,12 +41,7 @@ class App extends Component {
 	}
 
 	addItem=(text)=>{
-		const newItem = {
-			label: text,
-			important: false,
-			id: this.maxId++
-		}
-
+		const newItem = this.createTodoItem(text);
 		this.setState(({todoData})=>{
 				return {
 					todoData: [...todoData,newItem]
@@ -47,12 +50,27 @@ class App extends Component {
 		
 	}
 
-	onToggleImportant=(label)=>{
-		console.log('important'+label);
+	onToggleImportant=(id)=>{
+		console.log('important'+id);
 	}
 
-	onToggleDone=(label)=>{
-		console.log('done'+label);
+	onToggleDone=(id)=>{
+		this.setState(({todoData})=>{
+			const idx = todoData.findIndex((el)=>el.id===id);
+			console.log('You choose: '+idx);
+			
+			// 1 update object
+			const oldItem = todoData[idx];
+			//обновляется(создается) массив newItem с done:true
+			const newItem = {...oldItem,done: !oldItem.done};
+			console.log(newItem);
+			// 2 construct new array
+			const newArray = [...todoData.slice(0,idx),newItem,...todoData.slice((idx+1))];
+			console.log()
+			return {
+				todoData: newArray
+			}
+		})
 	}
 	render(){		
 		return (
@@ -62,7 +80,9 @@ class App extends Component {
 					<SearchPanel />
 					<ItemStatusFilter />
 				</div>
-				<TodoList todos={this.state.todoData} onDeleted={this.deleteItem} onToggleImportant={this.onToggleImportant} onToggleDone={this.onToggleDone}/>
+				<TodoList todos={this.state.todoData} onDeleted={this.deleteItem} 
+						  onToggleImportant={this.onToggleImportant} 
+				 		  onToggleDone={this.onToggleDone}/>
 				<ItemAddForm addItem={this.addItem} />
 			</div>
 		);
