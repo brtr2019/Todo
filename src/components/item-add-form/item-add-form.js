@@ -18,9 +18,6 @@ export default class ItemAddForm extends Component{
 			label:''
 		})
 	}
-	
-
-
 
 	render(){
 		//const {addItem} = this.props;
@@ -30,7 +27,7 @@ export default class ItemAddForm extends Component{
 							 className="form-control"
 							 onChange={this.onLabelChange}
 							 placeholder="What need to be done..."
-							value={this.state.label}	
+							 value={this.state.label}	
 
 							 />
 				<button className="btn btn-outline-secondary" >Add item</button>
