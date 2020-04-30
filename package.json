@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "emmet": "^2.0.0-rc.9",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.3",
